@@ -1,0 +1,28 @@
+#
+# ps5pr9.txt (Problem Set 5, Problem 9)
+#
+# Calling a distance function twice
+#
+
+
+00      read r1
+01      read r2
+02      read r3
+03      call r14 06 
+04      write r3
+05      halt
+06      sub r4 r1 r2
+07      jltzn r4 15
+08      sub r5 r1 r3
+09      jltzn r5 16
+10      addn r4 -1
+11      jeqzn r4 19
+12      addn r5 -1
+13      jnezn r5 10
+14      jumpr r14
+15      neg r4 r4
+16      jumpn 10
+17      neg r5 r4
+18      jumpn 10
+19      write r2
+20      halt

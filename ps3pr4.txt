@@ -1,0 +1,58 @@
+#
+# ps3pr4.py (Problem Set 3, Problem 3)        
+#
+# Caesar cipher / decipher
+# More algorithm design!
+#
+
+def index(elem, seq):
+    if seq == [] or seq == '':
+        return -1
+    elif elem == seq[0]:
+        return 0
+    else:
+        shorter = index(elem, seq[1:])
+        print(shorter)
+        if shorter == -1:
+            return -1
+        else:
+            return 1 + shorter
+def index_last(elem, seq):
+    news = seq[::-1]
+    if news == [] or news == '':
+        return -1
+    elif elem == news[0]:
+        return len(news)-1
+    else:
+        shorter = index(elem, news[1:])
+        if shorter == -1:
+            return -1
+        else:
+            return len(seq) - 2 - shorter
+print(index_last(5, [4, 10,5 ,3,7,5]))
+def rem_first(elem, values):
+    '''finds the index of element
+    '''
+    if values == [] or values == '':
+        return -1
+    elif elem == values[0]:
+        return 0
+    else:
+        shorter = index(elem, values[1:])
+        if shorter == -1:
+            return -1
+        else:
+            return 1 + shorter
+    
+def jscore(s1, s2):
+    score = 0
+    if len(s1) == 0:
+        return score
+    elif len(s2) ==0:
+        return score
+    for x in s1:
+        indy = rem_first(x,s2)
+        if indy >= 0:
+            s2 = s2[:indy] + s2[indy+1:]
+            score += 1
+    return score

@@ -1,0 +1,28 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Sep 20 12:02:26 2019
+
+@author: Gordon Ng
+"""
+def mirror(s):
+    """makes a mirror of string at end of first string"""
+    return s + s[::-1]
+
+def is_mirror(s):
+    """uses mirror(s) to check if its an anagram"""
+    return mirror(s) == mirror(s[::-1])
+    
+def replace_end(values, new_end_vals):
+    """returns a new list in which the elements in new_end_vals have replaced the last n elements of the list values, where n is the length of new_end_vals"""
+    if len(new_end_vals) > len(values):
+        return new_end_vals
+    else:
+        x = len(new_end_vals)
+        y = len(values)
+        values = values[:y-x]
+        combination = values + new_end_vals
+        return combination
+
+def repeat_elem(values, index, num_times):
+    new_end_values = values[:index] + [values[index]] * num_times + values[index+1:] 
+    return new_end_values

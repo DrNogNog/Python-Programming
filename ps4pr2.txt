@@ -1,0 +1,23 @@
+from ps4pr1 import*
+
+def add(s1,s2):
+	"""takes as inputs two strings b1 and b2 that represent binary numbers"""
+	n1 = bin_to_dec(s1)
+	n2 = bin_to_dec(s2)
+	bin = n1 + n2 
+	b_sum = dec_to_bin(bin)
+	return b_sum 
+
+
+def increment(b):
+	"""takes an 8-character string representation of a binary number and returns the next larger binary number as an 8-character string"""
+	if b == '11111111':
+		return '00000000'
+	else:
+		x = bin_to_dec(b)
+		x = x + 1.0
+		y = dec_to_bin(x)
+		if len(y) < 8:
+			zeros = 8 - len(y)
+			return '0' * zeros + y
+

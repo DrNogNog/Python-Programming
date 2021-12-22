@@ -1,0 +1,79 @@
+# 
+# ps3pr2.py - Problem Set 1, Problem 2
+#
+# Recursions 
+#
+
+#
+# Algorithm designs
+#
+
+def cube_all_lc(values):
+    """uses list comprehensions to find cubes"""
+    y = [x**3 for x in values]
+    return y
+
+def cube_all_rec(values):
+    """uses recursion to find cubes"""
+    if len(values) <= 0:
+        return values
+    else:
+        multi = [values[0] ** 3] + cube_all_rec(values[1:])
+        return multi
+
+def num_larger(threshold, values):
+    """uses list comprehension to find values"""
+    y = [x for x in values if x > threshold]
+    p = len(y)
+    return p
+
+def num_vowels(s):
+    """ returns the number of vowels in the string s
+        input: s is a string of 0 or more lowercase letters
+    """
+    if s == '':
+        return 0
+    else:
+        num_in_rest = num_vowels(s[1:])
+        if s[0] in 'aeiou':
+            return 1 + num_in_rest
+        else:
+            return 0 + num_in_rest
+
+def most_consonants(words):
+    """takes num_vowels, finds number of vowels and subtracts from length. Uses max function to find most consonants
+    """
+    vowellengthword = [[len(x)-num_vowels(x),x] for x in words]
+    themax = max(vowellengthword)
+    return themax[1]
+
+def price_string(cents):
+    """ takes as input a positive integer cents representing a price given in cents, and that constructs and returns a string in which the price is expressed as a combination of dollars and cents. """
+    d = cents // 100   # compute whole number of dollars
+    c = cents % 100   # compute remaining cents
+
+    price = ''            # initial value of the price string
+     ## add code below to build up the price string
+    if d == 0:
+        if c ==1:
+            price = '1 cent'
+        elif c > 1:
+            price = str(c) + ' cents'
+    elif d == 1:
+        if c == 0:
+            price = '1 dollar'
+        elif c == 1:
+            price = '1 dollar, 1 cent'
+        else:
+            price = '1 dollar, ' + str(c) +' cents'
+    else:
+        if c == 0:
+            price = str(d) +'dollars'
+        elif c == 1:
+            price = str(d) + 'dollars, 1 cent'
+        else:
+            price = str(d) + ' dollars, ' + str(c) + ' cents'
+
+    return price
+print(price_string(452))
+    

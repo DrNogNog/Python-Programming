@@ -1,0 +1,71 @@
+# Gordon Ng
+# ps1pr3.py - Problem Set 1, Problem 3
+#
+# Functions with numeric inputs
+#
+# If you worked with a partner, put their contact info below:
+# partner's name:
+# partner's email:
+#
+
+# function 0
+def opposite(x):
+    """ returns the opposite of its input
+        input x: any number (int or float)
+    """
+    return -1*x
+
+# put your definitions for the remaining functions below
+    
+def cube(x):
+    """ returns cube of its input
+        input x: any number
+    """ 
+    return x ** 3
+
+def convert_to_inches(yards, feet):
+    """ returns the corrosponding length in inches.
+        takes two numeric inputs yards and feet that together represent a single length broken up into yards and feet
+    """
+    if yards < 0:
+        yards = 0
+    elif feet < 0:
+        feet = 0        
+    return((yards * 12 * 3) + (feet * 12))
+
+def area_sq_inches(height_yds, height_ft, width_yds, width_ft):
+    """ returns the area  of the rectangle in square inches
+        takes four numeric inputs:
+            height_yds and height_ft that together represent the height of a rectangle
+            width_yds and width_ft that together represent the width of a rectangle
+            """
+    x = convert_to_inches(height_yds, height_ft)
+    y = convert_to_inches(width_yds, width_ft)
+    return(x * y)
+
+def median(a, b, c):
+    if a <= b <= c:
+        return b
+    elif c <= a <= b:
+        return a
+    elif b <= c <= a:
+        return c
+    elif c <= b <= a:
+        return b
+    elif b <= a <= c:
+        return a
+    elif a <= c <= b:
+        return c
+
+# test function with a sample test call for function 0
+def test():
+    """ performs test calls on the functions above """
+    print(median(10, 2, 2))
+    print(median(8, 6, 4))
+    print(median(7, 2, 10))
+    print(area_sq_inches(1, 2, 3, 1))
+    #print(convert_to_inches(-4,2))
+    #print('opposite(-8) returns', opposite(-8))
+
+    # optional but encouraged: add test calls for your functions below
+test()

@@ -1,0 +1,10 @@
+﻿Problem Set 9, Problem 0
+Put your response to the reading below.
+IMPORTANT: Your entire response should fit on this page.
+Suppose that pivot searching were readily available to you. To what extent could you imagine using it? Do you feel it would make you more productive – or would this type of search remain largely unused in the way you interact with computation and electronic materials?
+I feel like pivot searching would be very beneficial when it comes to school work but in my free time it would be almost distracting and time consuming.
+
+
+In the conference paper on pivot searching, the authors point out that the approach may especially help particular types of professionals, e.g., it would allow doctors “to search on the context (symptoms) of other patients, thus discovering diagnoses, treatments and other relevant information” and would allow lawyers to “leverage a context search tool based on cases, allowing them to search on client name, arguments made, resources cited, and then seeing the contexts in which they were applied.” Do you find these imagined applications believable and/or compelling? Could you imagine other endeavors where context-based searches would be even more beneficial?
+I definitely believe that these applications are believable because there is already software like Google api which tells your emotion with input words. 
+Context based searches will be extremely helpful for Amazon electronic products where you don't know what you're looking for.

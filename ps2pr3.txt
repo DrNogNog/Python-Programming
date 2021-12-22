@@ -1,0 +1,24 @@
+# 
+# ps2pr3.py - Problem Set 2, Problem 3,4
+#
+# Indexing and slicing puzzles
+#
+
+#
+# List puzzles
+#
+
+def flipside(s):
+    half = len(s)//2
+    return s[half:] + s[0:half] 
+
+def adjust(s, length):
+    x = ' '
+    if len(s) == length:
+        return s
+    elif len(s) < length:
+        return ((length-len(s)) * x) + s
+    elif len(s) > length:
+        return s[0:length]
+
+    

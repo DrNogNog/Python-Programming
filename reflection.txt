@@ -1,0 +1,50 @@
+I chose the last final snipits from F.R.I.E.N.D.S and How I Met Your Mother. 
+I also checked Shakespeare against J.K. Rowling. 
+I chose new texts from different supporting books and the first and last scenes from the shows.
+The results of my comparisons weren't as friendly, they were more general and alike.
+The results of my program are posted below and they all use the same amount of adverbs, but
+since this is only against 1000 to 2000 words, one could conclude that shakespeare's vocabulary
+is vast, as with adverbs ending in ly, he already exceeds all other texts.
+
+I think my classification program works very well as a normal human couldn't possibly go through 1000 to 2000 words in seconds time.
+It could be improved by adding all types of adverbs as well as stemming down on the stems function with more details.
+I would crack down on the whole english language for the comparisons, which would probably take me days to do.
+However, for a person who attempts this challenge by hand, it would take them lifetimes.
+This was a very creative project that could be used later on and I enjoyed this one, as I would probably
+improve it on my own time.  The word lengths are all about the same and I wish I could actually show the dictionaries
+that showed the sentence lengths in the main model display with function print(model). It states word lengths and sentence lengths
+but we don't know how long these sentences are, just that there's a similar amount of differences. Shakespeare and J.K Rowling are
+definitely as alike as my program shows them to be.
+
+
+
+
+
+
+text model name: HIMYM
+  number of words: 1049
+  number of word lengths: 14
+  number of stems: 961
+  number of sentence lengths: 38
+  number of ly_adverbs: 26
+
+text model name: FRIENDS
+  number of words: 1137
+  number of word lengths: 14
+  number of stems: 1017
+  number of sentence lengths: 28
+  number of ly_adverbs: 21
+
+text model name: Deathly_Hollows
+  number of words: 1114
+  number of word lengths: 14
+  number of stems: 1047
+  number of sentence lengths: 38
+  number of ly_adverbs: 39
+
+text model name: Shakespeare
+  number of words: 2668
+  number of word lengths: 15
+  number of stems: 2406
+  number of sentence lengths: 63
+  number of ly_adverbs: 65

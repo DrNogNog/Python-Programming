@@ -1,0 +1,31 @@
+def double(s):
+	"""takes an arbitrary string s as input, and that uses a loop to construct and return the string formed by doubling each character"""
+	newstring = ""
+	for x in s:
+		newstring += x*2
+	return newstring 
+
+def weave(s1,s2):
+	""" takes as inputs two strings s1 and s2 and uses a loop to construct and return a new string that is formed by “weaving” together the characters in the strings s1 and s2 to create a single string"""
+	newstring1 = ""
+	savedstring = "" 
+	for x in range(min(len(s1),len(s2))):
+		if len(s2) > len(s1):
+			savedstring = s2[len(s1):]
+		elif len(s1) > len(s2):
+			savedstring = s1[len(s2):]
+			s1 = s1[:len(s2)]
+		newstring1 += s1[x]
+		newstring1 += s2[x]
+	return newstring1 + savedstring 
+		
+def index(elem,seq):
+	"""takes as inputs an element elem and a sequence seq, and that uses a loop to find and return the index of the first occurrence of elem in seq"""
+	for x in range(len(seq)):
+		if elem == seq[x]:
+			return x 
+		elif x == len(seq) - 1:
+			return -1 
+		
+		
+		

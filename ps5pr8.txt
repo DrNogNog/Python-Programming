@@ -1,0 +1,26 @@
+#
+# ps5pr8.txt (Problem Set 5, Problem 8)
+#
+# Using a function and a loop to determine if a number is prime
+#
+ 
+
+00      read r1
+01      setn r2 2
+02      div r13 r1 r2
+03      copy r3 r2
+04      call r4 07
+05      write r5
+06      halt
+07      sub r14 r13 r3
+08      jeqz r14 17     
+09      mod r15 r1 r3
+10      jgtz r15 14         
+11      write r3
+12      setn r5 0
+13      jump r4
+14      addn r3 1
+15      setn r5 1
+16      jumpn 07
+17      write r1
+18      jumpr r4

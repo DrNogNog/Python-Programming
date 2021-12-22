@@ -1,0 +1,30 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Sep 20 12:02:26 2019
+
+@author: Gordon Ng
+"""
+def first_and_last(values):
+    """ takes first index, takes last index, combines """
+    first = values[0]
+    last = values[-1]
+    return [first, last]
+
+def longer_len(s1, s2):
+    """ Compares if string S2 is bigger than string S1, and returns s2 if it is bigger, else, returns s1 """
+    if len(s2) > len(s1):
+        return len(s2)
+    else:
+        return len(s1)
+
+def move_to_end(s, n):
+    """  returns the a new string in which the first n characters of s have been moved to the end of the string."""
+    if n > len(s):
+        return s
+    else:
+        x = s[0:n]
+        y = s[n:]
+        return y + x
+
+
+    

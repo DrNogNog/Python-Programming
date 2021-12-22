@@ -1,0 +1,136 @@
+#
+# ps6pr5.py (Problem Set 6, Problem 5)
+#
+# TT Securities    
+#
+# Computer Science 111
+#
+
+import math
+
+def display_menu():
+    """ prints a menu of options
+    """  
+    print()
+    print('(0) Input a new list of prices')
+    print('(1) Print the current prices')
+    print('(2) Find the latest price')
+    print('(3) Find the average price')
+    print('(4) Find the standard deviation')
+    print('(5) Find the max price and its day')
+    print('(6) Test a threshold')
+    print('(7) Your investment plan')    
+    ## Add the new menu options here.
+
+    print('(8) Quit')
+
+def get_new_prices():
+    """ gets a new list of prices from the user and returns it
+    """
+    new_price_list = eval(input('Enter a new list of prices: '))
+    return new_price_list
+
+def print_prices(prices):
+    """ prints the current list of prices
+        input: prices is a list of 1 or more numbers.
+    """
+    if len(prices) == 0:
+        print('No prices have been entered.')
+        return
+    
+    print('Day Price')
+    print('--- -----')
+    for i in range(len(prices)):
+        print('%3d' % i, end='')
+        print('%6.2f' % prices[i])
+
+def latest_price(prices):
+    """ returns the latest (i.e., last) price in a list of prices.
+        input: prices is a list of 1 or more numbers.
+    """
+    return prices[-1]
+
+## Add your functions for options 3-7 below.
+
+def avg_price(prices):
+    totalsum = 0
+    for i in range(len(prices)):
+        totalsum += prices[i]
+    average = totalsum / len(prices)
+    return average
+def std_dev(prices):
+    total = 0
+    average = avg_price(prices)
+    for i in range(len(prices)):
+        total += ((prices[i] - average)**2)
+    total = total / len(prices)
+    big = math.sqrt(total)
+    return big
+def max_day(prices):
+    themaxindex = 0
+    for i in range(len(prices)):
+        if prices[i] > prices[i-1]:
+            themaxindex = i
+    return themaxindex
+def any_below(prices, threshold):
+    for i in range(len(prices)):
+        if prices[i] < threshold:
+            return True
+    return False
+def find_plan(prices):
+    themaxdiff = 0
+    for i in range(len(prices)):
+        for j in range(len(prices)):
+            if j > i:
+                if (prices[j] - prices[i]) > themaxdiff:
+                    themaxdiff = (prices[j] - prices[i])
+                    buy = i
+                    sell = j
+    return [buy, sell, themaxdiff]
+def tts():
+    """ the main user-interaction loop
+    """
+    prices = []
+    while True:
+        display_menu()
+        choice = int(input('Enter your choice: '))
+        print()
+
+        if choice == 0:
+            prices = get_new_prices()
+        elif choice == 8:
+            break
+        elif choice < 8 and len(prices) == 0:
+            print('You must enter some prices first.')
+        elif choice == 1:
+            print_prices(prices)
+        elif choice == 2:
+            latest = latest_price(prices)
+            print('The latest price is', latest)
+        elif choice == 3:
+            average = avg_price(prices)
+            print('The average price is', average)
+        elif choice == 4:
+            big = std_dev(prices)
+            print('The standard deviation is', big)
+        elif choice == 5:
+            themax = max_day(prices)
+            print('The max price is', prices[themax], 'on day', themax)
+        elif choice == 6:
+            threshold = input('Enter the threshold:')
+            boolean = any_below(prices, threshold)
+            if boolean == True:
+                print('There are prices below', threshold)
+            else:
+                print('There are no prices below', threshold)
+                
+        ## add code to process the other choices here
+        elif choice == 7:
+            list = find_plan(prices)
+            print('Buy on day', list[0], 'at price', prices[list[0]])
+            print('Sell on day', list[1], ' at price', prices[list[1]])
+            print('Total profit:', (prices[list[1]]-prices[list[0]]))
+        else:
+            print('Invalid choice. Please try again.')
+
+    print('See you yesterday!')

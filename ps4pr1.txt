@@ -1,0 +1,35 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Oct  8 08:27:39 2019
+
+@author: ADMIN
+"""
+
+def dec_to_bin(n):
+	""" takes a non-negative integer n and uses recursion to convert it from decimal to binary"""
+	if n == 0:
+		return str(0)
+	elif n == 1:
+		return str(1)
+	else:
+		x = dec_to_bin(n//2)
+		if n%2 == 0:
+			return x + '0'
+		else:
+			return x + '1' 
+
+def bin_to_dec(b):
+	"""takes a string b that represents a binary number and uses recursion to convert the number from binary to decimal"""
+	if b == '0':
+		return 0 
+	elif b == '1':
+		return 1 
+	else:
+		y = bin_to_dec(b[:-1])
+		if b[-1] == '1':
+			return 2 * y + 1 
+		else:
+			return 2 * y + 0 
+		
+	
+		

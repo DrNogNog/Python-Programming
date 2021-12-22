@@ -1,0 +1,22 @@
+Problem Set 8, Problem 0
+Put your response to the reading below.
+IMPORTANT: When you are done, you must download the file as plain-text, not as a PDF.
+Use File->Download->Plain Text.
+The article claims that researchers have been “fine-tuning a computer system that is trying to
+master semantics by learning more like a human.” Based on the article and your own
+experiences programming computers (in circuit diagrams, assembly language, and Python),
+how do computers operate and learn differently from the way humans do? Are there any
+similarities?
+Computers operate and learn differently from the way humans do because, they associate
+words with common emotions when describing things. However, sometimes in the english
+language, a word can be used to describe two different things, but with similar sentences, one
+could be in a whole nother realm of understanding.
+The NELL system had to have human help in order to avoid the cascade of mistaken
+conclusions from the statement, “I deleted my Internet cookies.” Do you believe
+machine-learning systems (like NELL or others) will always need human assistance such as
+this, or will they be able to overcome such problems in the future? Give a brief explanation for
+your thoughts.
+I believe machine learning systems will soon not need human assistance. As we add more to a
+machine’s word bank and its understanding of words, it could even start deciding which
+emotions to display. However, the english dictionary is ever expanding and there’s no telling
+when will be the last human update.

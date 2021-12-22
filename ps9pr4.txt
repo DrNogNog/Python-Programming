@@ -1,0 +1,66 @@
+#
+# ps9pr4.py  (Problem Set 9, Problem 4)
+#
+# AI Player for use in Connect Four   
+#
+
+import random  
+from ps9pr3 import *
+class AIPlayer(Player):
+    """one called tiebreak that stores a string specifying the player’s tiebreaking strategy ('LEFT', 'RIGHT', or 'RANDOM')
+one called lookahead that stores an integer specifying how many moves the player looks ahead in order to evaluate possible moves.
+    """
+    def __init__(self, checker, tiebreak, lookahead):
+        """ constructs a new AIPlayer object
+        """
+        assert(checker == 'X' or checker == 'O')
+        assert(tiebreak == 'LEFT' or tiebreak == 'RIGHT' or tiebreak == 'RANDOM')
+        assert(lookahead >= 0)
+        super().__init__(checker)
+        self.tiebreak = tiebreak
+        self.lookahead = lookahead
+    def __repr__(self):
+        """returned string should also indicate the player’s tiebreaking strategy and lookahead"""
+        return('Player '+self.checker+' ('+self.tiebreak+', '+str(self.lookahead)+')')
+    def max_score_column(self,scores):
+        """takes list of scores and finds max score and their ties"""
+        indexmax = []
+        maximus = max(scores)
+        for i in range(len(scores)):
+            if scores[i] == maximus:
+                indexmax += [i]
+        if self.tiebreak == 'LEFT':
+            return indexmax[0]
+        if self.tiebreak == 'RIGHT':
+            return indexmax[-1]
+        if self.tiebreak == 'RANDOM':
+            return random.choice(indexmax)
+    def scores_for(self, b):
+        """ takes a Board object b and determines the called AIPlayer‘s scores for the columns in b. Each column should be assigned one of the four possible scores"""
+        scores = [10] * len(range(b.width))
+        for col in range(b.width):
+            if not b.can_add_to(col):
+                scores[col] = -1
+            elif b.is_win_for(self.checker):
+                scores[col] = 100
+            elif b.is_win_for(self.opponent_checker()):
+                scores[col] = 0
+            elif self.lookahead == 0:
+                scores[col] = 50
+            else:
+                b.add_checker(self.checker, col)
+                playertwo = AIPlayer(self.opponent_checker(), self.tiebreak, self.lookahead-1)
+                otherscores = playertwo.scores_for(b)
+                if max(otherscores) == 0:
+                    scores[col] = 100
+                elif max(otherscores) == 50:
+                    scores[col] = 50 
+                elif max(otherscores) == 100:
+                    scores[col] = 0
+                b.remove_checker(col)
+        return scores
+    def next_move(self, b):
+        """returns AIPlayer move"""
+        self.num_moves += 1
+        return self.max_score_column(self.scores_for(b))
+         

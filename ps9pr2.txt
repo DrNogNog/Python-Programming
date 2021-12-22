@@ -1,0 +1,37 @@
+#
+# ps9pr2.py  (Problem Set 9, Problem 2)
+#
+# A Connect-Four Player class 
+#  
+
+from ps9pr1 import Board
+
+# write your class below
+
+class Player:
+    """ creates player class"""
+    def __init__(self,checker):
+        assert(checker == 'X' or checker == 'O')
+        self.checker = checker
+        self.num_moves = 0
+    def __repr__(self):
+        """returns string based player"""
+        if self.checker == 'X':
+            return 'Player X'
+        if self.checker == 'O':
+            return 'Player O'
+    def opponent_checker(self):
+        """who's -NEXT- my opponent ez"""
+        if self.checker == 'X':
+            return 'O'
+        if self.checker == 'O':
+            return 'X'
+    def next_move(self, b):
+        """my next move"""
+        valid = int(input('Enter a column: '))
+        while True:
+            if b.can_add_to(valid) == True:
+                self.num_moves += 1
+                return valid
+            else:
+                print('Try again!')

@@ -1,0 +1,27 @@
+# -*- coding: utf-8 -*-
+# 
+# ps6pr4.py - Problem Set 6, Problem 4
+#
+# Choosing the Correct Type of Loop
+#
+
+def log(b, n):
+    count = 0
+    while n >= b:
+        print('dividing', int(n), 'by', int(b),'gives', int(n/b))
+        n /= b
+        count += 1
+    return count
+
+def add_powers(m, n):
+    lc = []
+    for i in range(0,m):
+        lc = lc + [n ** i]
+        print(n, '**', i, '=', n**i)
+    return sum(lc)
+
+def square_evens(values):
+    for i in range(len(values)):
+        if values[i] % 2 == 0:
+            values[i] = values[i]**2
+

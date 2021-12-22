@@ -1,0 +1,57 @@
+# 
+# ps2pr7.py - Problem Set 2, Problem 7
+#
+# Recursion and list comprehension
+#
+
+#
+# Recursions :(
+#
+
+def letter_score(letter):
+    ''' takes a lowercase letter as input and returns the value of that letter as a scrabble tile.'''
+    assert(len(letter) == 1)
+    if letter not in 'abcdefghijklmnopqrstuvwxyz':
+        return 0
+    elif letter in 'aeilnorstu':
+        return 1
+    elif letter in 'bcmp':
+        return 3
+    elif letter in 'dg':
+        return 2
+    elif letter in 'fhwvy':
+        return 4
+    elif letter in 'k':
+        return 5
+    elif letter in 'jx':
+        return 8
+    elif letter in 'qz':
+        return 10
+def scrabble_score(word):
+    if word == '':
+        return 0
+    else:
+        wordlist = [x for x in word]
+        wordscore = [letter_score(x) for x in wordlist]
+        thesum = 0
+        for x in wordscore:
+            thesum = thesum + x
+        return thesum
+def add(vals1, vals2):
+    if len(vals2) == 0:
+        return []
+    else:
+        thesum = vals1[0]+vals2[0]
+        return [thesum] + add(vals1[1:],vals2[1:])
+
+def weave(s1, s2):
+    if s1 and s2:
+        result = s1[0]+s2[0]
+        return result + weave(s1[1:], s2[1:])
+    elif s1:
+        return s1
+    else:
+        return s2
+
+print(weave('aaaa', 'bbbbbb'))
+        

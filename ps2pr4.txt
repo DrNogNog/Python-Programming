@@ -1,0 +1,33 @@
+# 
+# ps2pr4.py - Problem Set 2, Problem 3,4
+#
+# Indexing and slicing puzzles
+#
+#Gordon Ng
+#
+# List puzzles
+#
+
+def copy(s, n):
+    if n <= 0:
+        return ""
+    else:
+        return s + copy(s,n-1)
+    
+    
+def compare(list1, list2):
+    if len(list1) == 0 or len(list2) == 0:
+        return 0
+    else:
+        total = 0
+        if list1[0] < list2[0]:
+            total = 1
+        return total + compare(list1[1:], list2[1:])
+
+def double(s):
+    if s == "":
+        return ""
+    else:
+        return s[0] + s[0] + double(s[1:])
+    
+
